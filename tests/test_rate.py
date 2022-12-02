@@ -25,7 +25,7 @@ import unittest
 from loop_rate_limiters import Rate
 
 
-class TestRate(unittest.IsolatedTestCase):
+class TestRate(unittest.TestCase):
     def setUp(self):
         """
         Initialize a rate with 1 ms period.
