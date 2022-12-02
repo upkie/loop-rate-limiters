@@ -1,0 +1,40 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "loop-rate-limiters"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Stéphane Caron", email = "stephane.caron@normalesup.org"},
+]
+maintainers = [
+    {name = "Stéphane Caron", email = "stephane.caron@normalesup.org"},
+]
+dynamic = ['version', 'description']
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = []
+keywords = ["rate", "loop", "frequency", "regulator", "limiter"]
+
+[project.urls]
+Source = "https://github.com/stephane-caron/loop-rate-limiters"
+Tracker = "https://github.com/stephane-caron/loop-rate-limiters/issues"
+Changelog = "https://github.com/stephane-caron/loop-rate-limiters/blob/master/CHANGELOG.md"
+
+[tool.black]
+line-length = 79
+
+[tool.flit.module]
+name = "loop_rate_limiters"
