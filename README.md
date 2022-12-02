@@ -14,13 +14,13 @@ pip install loop-rate-limiters
 
 ## Usage
 
-The ``Rate`` class provides a loop frequency limiter:
+The ``RateLimiter`` class provides a loop frequency limiter:
 
 ```python
-from loop_rate_limiters import Rate
+from loop_rate_limiters import RateLimiter
 from time import perf_counter
 
-rate = Rate(frequency=400.0)
+rate = RateLimiter(frequency=400.0)
 while True:
     print(f"Hello from loop at {perf_counter():.3f} s")
     rate.sleep()
