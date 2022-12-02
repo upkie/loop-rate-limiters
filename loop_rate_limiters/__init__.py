@@ -21,8 +21,8 @@ Loop rate limiters.
 
 __version__ = "0.1.0"
 
-from .rate import Rate
+from .rate_limiter import RateLimiter
 
 __all__ = [
-    "Rate",
+    "RateLimiter",
 ]

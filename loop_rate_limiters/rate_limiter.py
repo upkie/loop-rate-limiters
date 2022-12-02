@@ -16,13 +16,13 @@
 # limitations under the License.
 
 """
-Rate class.
+Basic rate limiter.
 """
 
 from time import perf_counter, sleep
 
 
-class Rate:
+class RateLimiter:
 
     """
     Regulate the frequency between calls to the same instruction in e.g. a loop

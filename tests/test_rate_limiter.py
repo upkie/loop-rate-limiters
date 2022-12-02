@@ -22,7 +22,7 @@ Test rate limiter.
 import time
 import unittest
 
-from loop_rate_limiters import Rate
+from loop_rate_limiters import RateLimiter
 
 
 class TestRate(unittest.TestCase):
@@ -30,7 +30,7 @@ class TestRate(unittest.TestCase):
         """
         Initialize a rate with 1 ms period.
         """
-        self.rate = Rate(frequency=1000.0)
+        self.rate = RateLimiter(frequency=1000.0)
 
     def test_init(self):
         """
