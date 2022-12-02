@@ -16,8 +16,7 @@
 # limitations under the License.
 
 """
-This module provides a non-blocking loop frequency regulator in the
-:class:`AsyncRate` class.
+This module provides a non-blocking loop frequency limiter for asyncio.
 
 Note that there is a difference between a (non-blocking) rate limiter and a
 (blocking) synchronous clock, which lies in the behavior when skipping cycles.
@@ -31,7 +30,7 @@ import asyncio
 import logging
 
 
-class AsyncRate:
+class AsyncRateLimiter:
 
     """
     Loop frequency regulator.
