@@ -28,14 +28,14 @@ while True:
 
 ### asyncio
 
-The ``AsyncRate`` class provides a loop frequency limiter for asyncio:
+The ``AsyncRateLimiter`` class provides a loop frequency limiter for asyncio:
 
 ```python
 import asyncio
-from loop_rate_limiters import AsyncRate
+from loop_rate_limiters import AsyncRateLimiter
 
 async def main():
-    rate = AsyncRate(frequency=400.0)
+    rate = AsyncRateLimiter(frequency=400.0)
     while True:
         loop_time = asyncio.get_event_loop().time()
         print(f"Hello from loop at {loop_time:.3f} s")

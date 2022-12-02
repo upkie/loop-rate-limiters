@@ -22,15 +22,15 @@ Test asyncio rate limiter.
 import asyncio
 import unittest
 
-from loop_rate_limiters import AsyncRate
+from loop_rate_limiters import AsyncRateLimiter
 
 
-class TestAsyncRate(unittest.IsolatedAsyncioTestCase):
+class TestAsyncRateLimiter(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         """
         Initialize a rate with 1 ms period.
         """
-        self.rate = AsyncRate(1000.0)
+        self.rate = AsyncRateLimiter(1000.0)
 
     async def test_init(self):
         """
