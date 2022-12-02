@@ -56,6 +56,15 @@ class Rate:
         self._next_tick = perf_counter() + period
         self.period = period
 
+    def remaining(self) -> float:
+        """
+        Get the time remaining until the next expected clock tick.
+
+        Returns:
+            Time remaining, in seconds, until the next expected clock tick.
+        """
+        return self._next_tick - perf_counter()
+
     def sleep(self):
         """
         Sleep the duration required to regulate the frequency between calls.
