@@ -25,3 +25,22 @@ while True:
     print(f"Hello from loop at {perf_counter():.3f} s")
     rate.sleep()
 ```
+
+### asyncio
+
+The ``AsyncRate`` class provides a loop frequency limiter for asyncio:
+
+```python
+import asyncio
+from loop_rate_limiters import AsyncRate
+
+async def main():
+    rate = AsyncRate(frequency=400.0)
+    while True:
+        loop_time = asyncio.get_event_loop().time()
+        print(f"Hello from loop at {loop_time:.3f} s")
+        await rate.sleep()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
