@@ -28,7 +28,7 @@ while True:
 
 ### asyncio
 
-The ``AsyncRateLimiter`` class provides a loop frequency limiter for asyncio:
+The ``AsyncRateLimiter`` class provides a loop frequency limiter for [asyncio](https://docs.python.org/3/library/asyncio.html):
 
 ```python
 import asyncio
