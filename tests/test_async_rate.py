@@ -50,9 +50,13 @@ class TestAsyncRateLimiter(unittest.IsolatedAsyncioTestCase):
     async def test_slack(self):
         """
         Slack becomes negative as well after one period has expired.
+
+        Notes:
+            We wait slightly less than a period because Windows (windows-latest
+            in the CI) has imprecise timers.
         """
         await self.rate.sleep()
-        await asyncio.sleep(self.rate.period)
+        await asyncio.sleep(self.rate.period * 1.05)  # a tad extra
         await self.rate.sleep()  # computes slack of previous period
         self.assertLess(self.rate.slack, 0.0)
 
