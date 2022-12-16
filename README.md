@@ -1,6 +1,6 @@
 # Loop rate limiters
 
-[![Build](https://img.shields.io/github/workflow/status/stephane-caron/loop-rate-limiters/CI)](https://github.com/stephane-caron/loop-rate-limier/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/stephane-caron/loop-rate-limiters/test.yml?branch=master)](https://github.com/stephane-caron/loop-rate-limiers/actions)
 [![Coverage](https://coveralls.io/repos/github/stephane-caron/loop-rate-limiters/badge.svg?branch=main)](https://coveralls.io/github/stephane-caron/loop-rate-limiters?branch=main)
 [![PyPI version](https://img.shields.io/pypi/v/loop-rate-limiters)](https://pypi.org/project/loop-rate-limiters/)
 
