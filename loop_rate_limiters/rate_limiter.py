@@ -15,22 +15,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-Basic rate limiter.
-"""
+"""Basic rate limiter."""
 
 from time import perf_counter, sleep
 
 
 class RateLimiter:
+    """Regulate the frequency between calls to the same instruction.
 
-    """
-    Regulate the frequency between calls to the same instruction in e.g. a loop
-    or callback.
-
-    This rate limiter is in essence the same as rospy.Rate_. It assumes
-    Python's performance counter never jumps backward nor forward, so that it
-    does not handle such cases contrary to rospy.Rate_.
+    This rate limniter is meant to be used in e.g. a loop or callback function.
+    It is, in essence, the same as rospy.Rate_. It assumes Python's performance
+    counter never jumps backward nor forward, so that it does not handle such
+    cases contrary to rospy.Rate_.
 
     .. _rospy.Rate:
         https://github.com/ros/ros_comm/blob/noetic-devel/clients/rospy/src/rospy/timer.py
@@ -46,8 +42,7 @@ class RateLimiter:
     slack: float
 
     def __init__(self, frequency: float):
-        """
-        Initialize rate limiter.
+        """Initialize rate limiter.
 
         Args:
             frequency: Desired frequency in hertz.
@@ -57,8 +52,7 @@ class RateLimiter:
         self.period = period
 
     def remaining(self) -> float:
-        """
-        Get the time remaining until the next expected clock tick.
+        """Get the time remaining until the next expected clock tick.
 
         Returns:
             Time remaining, in seconds, until the next expected clock tick.
@@ -66,9 +60,7 @@ class RateLimiter:
         return self._next_tick - perf_counter()
 
     def sleep(self):
-        """
-        Sleep the duration required to regulate the frequency between calls.
-        """
+        """Sleep for the duration required to regulate inter-call frequency."""
         self.slack = self._next_tick - perf_counter()
         if self.slack > 0.0:
             sleep(self.slack)

@@ -15,8 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-This module provides a non-blocking loop frequency limiter for asyncio.
+"""Non-blocking loop frequency limiter for asyncio.
 
 Note that there is a difference between a (non-blocking) rate limiter and a
 (blocking) synchronous clock, which lies in the behavior when skipping cycles.
@@ -31,9 +30,7 @@ import logging
 
 
 class AsyncRateLimiter:
-
-    """
-    Loop frequency regulator.
+    """Loop frequency regulator.
 
     Calls to :func:`sleep` are non-blocking most of the time but become
     blocking close to the next clock tick to get more reliable loop
@@ -67,8 +64,7 @@ class AsyncRateLimiter:
     slack: float
 
     def __init__(self, frequency: float, name: str = "rate_limiter"):
-        """
-        Initialize rate limiter.
+        """Initialize rate limiter.
 
         Args:
             frequency: Desired loop frequency in hertz.
@@ -86,8 +82,7 @@ class AsyncRateLimiter:
         self.slack = 0.0
 
     async def remaining(self) -> float:
-        """
-        Get the time remaining until the next expected clock tick.
+        """Get the time remaining until the next expected clock tick.
 
         Returns:
             Time remaining, in seconds, until the next expected clock tick.
@@ -95,8 +90,7 @@ class AsyncRateLimiter:
         return self._next_tick - self._loop.time()
 
     async def sleep(self, block_duration: float = 5e-4):
-        """
-        Sleep the duration required to regulate the loop frequency.
+        """Sleep the duration required to regulate the loop frequency.
 
         This function is meant to be called once per loop cycle.
 
