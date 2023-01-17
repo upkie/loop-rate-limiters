@@ -19,7 +19,7 @@
 Loop rate limiters.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1rc0"
 
 from .async_rate_limiter import AsyncRateLimiter
 from .rate_limiter import RateLimiter
