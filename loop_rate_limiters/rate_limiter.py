@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright 2022 Stéphane Caron
+# Copyright 2023 Inria
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,16 +31,11 @@ class RateLimiter:
 
     .. _rospy.Rate:
         https://github.com/ros/ros_comm/blob/noetic-devel/clients/rospy/src/rospy/timer.py
-
-    Attributes:
-        period: Desired period between two calls to :func:`sleep`, in seconds.
-        slack: Duration in seconds remaining until the next tick at the
-            end of the last call to :func:`sleep`.
     """
 
-    _next_tick: float
-    period: float
-    slack: float
+    __period: float
+    __slack: float
+    __next_tick: float
 
     def __init__(self, frequency: float):
         """Initialize rate limiter.
@@ -48,8 +44,31 @@ class RateLimiter:
             frequency: Desired frequency in hertz.
         """
         period = 1.0 / frequency
-        self._next_tick = perf_counter() + period
-        self.period = period
+        self.__next_tick = perf_counter() + period
+        self.__period = period
+
+    @property
+    def dt(self) -> float:
+        """Desired period between two calls to :func:`sleep`, in seconds."""
+        return self.__period
+
+    @property
+    def next_tick(self) -> float:
+        """Time of next clock tick."""
+        return self.__next_tick
+
+    @property
+    def period(self) -> float:
+        """Desired period between two calls to :func:`sleep`, in seconds."""
+        return self.__period
+
+    @property
+    def slack(self) -> float:
+        """Slack duration computed at the last call to :func:`sleep`.
+
+        This duration is in seconds.
+        """
+        return self.__slack
 
     def remaining(self) -> float:
         """Get the time remaining until the next expected clock tick.
@@ -57,11 +76,11 @@ class RateLimiter:
         Returns:
             Time remaining, in seconds, until the next expected clock tick.
         """
-        return self._next_tick - perf_counter()
+        return self.__next_tick - perf_counter()
 
     def sleep(self):
         """Sleep for the duration required to regulate inter-call frequency."""
-        self.slack = self._next_tick - perf_counter()
-        if self.slack > 0.0:
-            sleep(self.slack)
-        self._next_tick = perf_counter() + self.period
+        self.__slack = self.__next_tick - perf_counter()
+        if self.__slack > 0.0:
+            sleep(self.__slack)
+        self.__next_tick = perf_counter() + self.__period
