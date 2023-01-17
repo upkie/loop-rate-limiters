@@ -27,16 +27,16 @@ from loop_rate_limiters import RateLimiter
 
 class TestRate(unittest.TestCase):
     def setUp(self):
-        """
-        Initialize a rate with 1 ms period.
-        """
+        """Initialize a rate with 1 ms period."""
         self.rate = RateLimiter(frequency=1000.0)
 
     def test_init(self):
-        """
-        Constructor completed.
-        """
+        """Constructor completed."""
         self.assertIsNotNone(self.rate)
+
+    def test_period_dt(self):
+        """Check that period and dt are the same."""
+        self.assertAlmostEqual(self.rate.period, self.rate.dt)
 
     def test_remaining(self):
         """
