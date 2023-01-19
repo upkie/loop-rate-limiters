@@ -9,13 +9,13 @@ Simple loop frequency regulators in Python with an API similar to [``rospy.Rate`
 
 ## Installation
 
-### From conda-forge
+From conda-forge:
 
 ```sh
 conda install loop-rate-limiters -c conda-forge
 ```
 
-### From PyPI
+From PyPI:
 
 ```sh
 pip install loop-rate-limiters
