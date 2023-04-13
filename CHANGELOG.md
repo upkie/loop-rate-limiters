@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2023/04/13
+
+### Added
+
+- RateLimiter: warn when the limiter is running late
+
 ## [0.3.0] - 2023/01/20
 
 ### Added
