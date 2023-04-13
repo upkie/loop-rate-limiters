@@ -18,6 +18,7 @@
 
 """Basic rate limiter."""
 
+import logging
 from time import perf_counter, sleep
 
 
@@ -37,15 +38,17 @@ class RateLimiter:
     __slack: float
     __next_tick: float
 
-    def __init__(self, frequency: float):
+    def __init__(self, frequency: float, name: str = "rate limiter"):
         """Initialize rate limiter.
 
         Args:
             frequency: Desired frequency in hertz.
+            name: Human-readable name used for logging.
         """
         period = 1.0 / frequency
         self.__next_tick = perf_counter() + period
         self.__period = period
+        self.name = name
 
     @property
     def dt(self) -> float:
@@ -83,4 +86,10 @@ class RateLimiter:
         self.__slack = self.__next_tick - perf_counter()
         if self.__slack > 0.0:
             sleep(self.__slack)
+        elif self.__slack < -0.1 * self.period:
+            logging.warning(
+                "%s is late by %f [ms]",
+                self.name,
+                round(1e3 * self.__slack, 1),
+            )
         self.__next_tick = perf_counter() + self.__period

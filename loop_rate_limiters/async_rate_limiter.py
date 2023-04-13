@@ -63,7 +63,7 @@ class AsyncRateLimiter:
     period: float
     slack: float
 
-    def __init__(self, frequency: float, name: str = "rate_limiter"):
+    def __init__(self, frequency: float, name: str = "rate limiter"):
         """Initialize rate limiter.
 
         Args:
