@@ -30,9 +30,9 @@ dependencies = []
 keywords = ["rate", "loop", "frequency", "regulator", "limiter"]
 
 [project.urls]
-Source = "https://github.com/stephane-caron/loop-rate-limiters"
-Tracker = "https://github.com/stephane-caron/loop-rate-limiters/issues"
-Changelog = "https://github.com/stephane-caron/loop-rate-limiters/blob/master/CHANGELOG.md"
+Source = "https://github.com/tasts-robots/loop-rate-limiters"
+Tracker = "https://github.com/tasts-robots/loop-rate-limiters/issues"
+Changelog = "https://github.com/tasts-robots/loop-rate-limiters/blob/master/CHANGELOG.md"
 
 [tool.black]
 line-length = 79

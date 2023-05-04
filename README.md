@@ -1,7 +1,7 @@
 # Loop rate limiters
 
-[![Build](https://img.shields.io/github/actions/workflow/status/stephane-caron/loop-rate-limiters/main.yml?branch=main)](https://github.com/stephane-caron/loop-rate-limiters/actions)
-[![Coverage](https://coveralls.io/repos/github/stephane-caron/loop-rate-limiters/badge.svg?branch=main)](https://coveralls.io/github/stephane-caron/loop-rate-limiters?branch=main)
+[![Build](https://img.shields.io/github/actions/workflow/status/tasts-robots/loop-rate-limiters/main.yml?branch=main)](https://github.com/tasts-robots/loop-rate-limiters/actions)
+[![Coverage](https://coveralls.io/repos/github/tasts-robots/loop-rate-limiters/badge.svg?branch=main)](https://coveralls.io/github/tasts-robots/loop-rate-limiters?branch=main)
 
 Simple loop frequency regulators in Python with an API similar to ``rospy.Rate``:
 
