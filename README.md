@@ -2,28 +2,8 @@
 
 [![Build](https://img.shields.io/github/actions/workflow/status/stephane-caron/loop-rate-limiters/main.yml?branch=main)](https://github.com/stephane-caron/loop-rate-limiters/actions)
 [![Coverage](https://coveralls.io/repos/github/stephane-caron/loop-rate-limiters/badge.svg?branch=main)](https://coveralls.io/github/stephane-caron/loop-rate-limiters?branch=main)
-[![Conda version](https://img.shields.io/conda/vn/conda-forge/loop-rate-limiters.svg)](https://anaconda.org/conda-forge/loop-rate-limiters)
-[![PyPI version](https://img.shields.io/pypi/v/loop-rate-limiters)](https://pypi.org/project/loop-rate-limiters/)
 
 Simple loop frequency regulators in Python with an API similar to [``rospy.Rate``](https://wiki.ros.org/rospy/Overview/Time#Sleeping_and_Rates).
-
-## Installation
-
-From conda-forge:
-
-```sh
-conda install loop-rate-limiters -c conda-forge
-```
-
-From PyPI:
-
-```sh
-pip install loop-rate-limiters
-```
-
-## Usage
-
-The ``RateLimiter`` class provides a loop frequency limiter:
 
 ```python
 from loop_rate_limiters import RateLimiter
@@ -35,7 +15,29 @@ while True:
     rate.sleep()
 ```
 
-### asyncio
+A similar ``AsyncRateLimiter`` class is available for [asynchronous I/O](#asynchronous-i-o).
+
+## Installation
+
+### PyPI
+
+[![PyPI version](https://img.shields.io/pypi/v/loop-rate-limiters)](https://pypi.org/project/loop-rate-limiters/)
+[![PyPI downloads](https://static.pepy.tech/badge/loop-rate-limiters)](https://pepy.tech/project/loop-rate-limiters)
+
+```console
+$ pip install loop-rate-limiters
+```
+
+### Conda
+
+[![Conda version](https://anaconda.org/conda-forge/loop-rate-limiters/badges/version.svg)](https://anaconda.org/conda-forge/loop-rate-limiters)
+[![Conda downloads](https://anaconda.org/conda-forge/loop-rate-limiters/badges/downloads.svg)](https://anaconda.org/conda-forge/loop-rate-limiters)
+
+```console
+$ conda install loop-rate-limiters -c conda-forge
+```
+
+## Asynchronous I/O
 
 The ``AsyncRateLimiter`` class provides a loop frequency limiter for [asyncio](https://docs.python.org/3/library/asyncio.html):
 
