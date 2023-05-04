@@ -15,7 +15,7 @@ while True:
     rate.sleep()
 ```
 
-A similar ``AsyncRateLimiter`` class is available for [asynchronous I/O](#asynchronous-i-o).
+A similar ``AsyncRateLimiter`` class is available for [asynchronous code](#asynchronous-io).
 
 ## Installation
 
