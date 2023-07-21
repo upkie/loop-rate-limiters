@@ -34,6 +34,11 @@ class TestRate(unittest.TestCase):
         """Constructor completed."""
         self.assertIsNotNone(self.rate)
 
+    def test_next_tick(self):
+        call_tick = time.perf_counter()
+        self.rate.sleep()
+        self.assertGreaterEqual(self.rate.next_tick, call_tick + self.rate.dt)
+
     def test_period_dt(self):
         """Check that period and dt are the same."""
         self.assertAlmostEqual(self.rate.period, self.rate.dt)
