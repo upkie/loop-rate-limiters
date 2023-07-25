@@ -40,6 +40,12 @@ line-length = 79
 [tool.flit.module]
 name = "loop_rate_limiters"
 
+[tool.flit.sdist]
+exclude = [
+    ".github",
+    ".gitignore",
+]
+
 [tool.ruff]
 line-length = 79
 select = [
