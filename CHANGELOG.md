@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Added
+
+- AsyncRateLimiter: ``warn`` constructor argument
+- RateLimiter: ``warn`` constructor argument
+
 ## [0.4.0] - 2023/04/13
 
 ### Added

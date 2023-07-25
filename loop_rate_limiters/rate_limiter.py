@@ -32,23 +32,38 @@ class RateLimiter:
 
     .. _rospy.Rate:
         https://github.com/ros/ros_comm/blob/noetic-devel/clients/rospy/src/rospy/timer.py
+
+    Attributes:
+        name: Human-readable name used for logging.
+        warn: If set (default), warn when the time between two calls
+            exceeded the rate clock.
     """
 
     __period: float
     __slack: float
     __next_tick: float
+    name: str
+    warn: bool
 
-    def __init__(self, frequency: float, name: str = "rate limiter"):
+    def __init__(
+        self,
+        frequency: float,
+        name: str = "rate limiter",
+        warn: bool = True,
+    ):
         """Initialize rate limiter.
 
         Args:
             frequency: Desired frequency in hertz.
             name: Human-readable name used for logging.
+            warn: If set (default), warn when the time between two calls
+                exceeded the rate clock.
         """
         period = 1.0 / frequency
         self.__next_tick = perf_counter() + period
         self.__period = period
         self.name = name
+        self.warn = warn
 
     @property
     def dt(self) -> float:
@@ -86,7 +101,7 @@ class RateLimiter:
         self.__slack = self.__next_tick - perf_counter()
         if self.__slack > 0.0:
             sleep(self.__slack)
-        elif self.__slack < -0.1 * self.period:
+        elif self.__slack < -0.1 * self.period and self.warn:
             logging.warning(
                 "%s is late by %f [ms]",
                 self.name,

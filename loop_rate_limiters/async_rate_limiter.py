@@ -53,6 +53,8 @@ class AsyncRateLimiter:
         period: Desired loop period in seconds.
         slack: Duration in seconds remaining until the next tick at the
             beginning of the last call to :func:`sleep`.
+        warn: If set (default), warn when the time between two calls
+            exceeded the rate clock.
     """
 
     _last_loop_time: float
@@ -62,13 +64,18 @@ class AsyncRateLimiter:
     name: str
     period: float
     slack: float
+    warn: bool
 
-    def __init__(self, frequency: float, name: str = "rate limiter"):
+    def __init__(
+        self, frequency: float, name: str = "rate limiter", warn: bool = True
+    ):
         """Initialize rate limiter.
 
         Args:
             frequency: Desired loop frequency in hertz.
             name: Human-readable name used for logging.
+            warn: If set (default), warn when the time between two calls
+                exceeded the rate clock.
         """
         loop = asyncio.get_event_loop()
         period = 1.0 / frequency
@@ -80,6 +87,7 @@ class AsyncRateLimiter:
         self.name = name
         self.period = period
         self.slack = 0.0
+        self.warn = warn
 
     async def remaining(self) -> float:
         """Get the time remaining until the next expected clock tick.
@@ -114,7 +122,7 @@ class AsyncRateLimiter:
             while self._loop.time() < self._next_tick:
                 if self._loop.time() < block_time:
                     await asyncio.sleep(1e-5)  # non-zero sleep duration
-        elif self.slack < -0.1 * self.period:
+        elif self.slack < -0.1 * self.period and self.warn:
             logging.warning(
                 "%s is late by %f [ms]", self.name, round(1e3 * self.slack, 1)
             )
