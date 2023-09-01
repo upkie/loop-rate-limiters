@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Added
+
+- AsyncRateLimiter: `dt` property
+
+### Changed
+
+- AsyncRateLimiter: `measured_period` is now a property
+- AsyncRateLimiter: `next_tick` is now a property
+- AsyncRateLimiter: `period` is now a property
+- AsyncRateLimiter: `slack` is now a property
+
 ## [0.5.0] - 2023/07/25
 
 ### Added
