@@ -38,6 +38,10 @@ class TestAsyncRateLimiter(unittest.IsolatedAsyncioTestCase):
         """
         self.assertIsNotNone(self.rate)
 
+    def test_period_dt(self):
+        """Check that period and dt are the same."""
+        self.assertAlmostEqual(self.rate.period, self.rate.dt)
+
     async def test_remaining(self):
         """
         After one period has expired, the "remaining" time becomes negative.
