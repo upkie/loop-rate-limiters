@@ -57,12 +57,12 @@ class AsyncRateLimiter:
             exceeded the rate clock.
     """
 
+    __next_tick: float
+    __period: float
     _last_loop_time: float
     _loop: asyncio.AbstractEventLoop
-    _next_tick: float
     measured_period: float
     name: str
-    period: float
     slack: float
     warn: bool
 
@@ -80,14 +80,29 @@ class AsyncRateLimiter:
         loop = asyncio.get_event_loop()
         period = 1.0 / frequency
         assert loop.is_running()
+        self.__period = period
         self._last_loop_time = loop.time()
         self._loop = loop
-        self._next_tick = loop.time() + period
+        self.__next_tick = loop.time() + period
         self.measured_period = 0.0
         self.name = name
-        self.period = period
         self.slack = 0.0
         self.warn = warn
+
+    @property
+    def dt(self) -> float:
+        """Desired period between two calls to :func:`sleep`, in seconds."""
+        return self.__period
+
+    @property
+    def next_tick(self) -> float:
+        """Time of next clock tick."""
+        return self.__next_tick
+
+    @property
+    def period(self) -> float:
+        """Desired period between two calls to :func:`sleep`, in seconds."""
+        return self.__period
 
     async def remaining(self) -> float:
         """Get the time remaining until the next expected clock tick.
@@ -95,7 +110,7 @@ class AsyncRateLimiter:
         Returns:
             Time remaining, in seconds, until the next expected clock tick.
         """
-        return self._next_tick - self._loop.time()
+        return self.__next_tick - self._loop.time()
 
     async def sleep(self, block_duration: float = 5e-4):
         """Sleep the duration required to regulate the loop frequency.
@@ -116,17 +131,17 @@ class AsyncRateLimiter:
         average error with a single asyncio.sleep). Empirically a block
         duration of 0.5 ms gives good behavior at 400 Hz or lower.
         """
-        self.slack = self._next_tick - self._loop.time()
+        self.slack = self.__next_tick - self._loop.time()
         if self.slack > 0.0:
-            block_time = self._next_tick - block_duration
-            while self._loop.time() < self._next_tick:
+            block_time = self.__next_tick - block_duration
+            while self._loop.time() < self.__next_tick:
                 if self._loop.time() < block_time:
                     await asyncio.sleep(1e-5)  # non-zero sleep duration
-        elif self.slack < -0.1 * self.period and self.warn:
+        elif self.slack < -0.1 * self.__period and self.warn:
             logging.warning(
                 "%s is late by %f [ms]", self.name, round(1e3 * self.slack, 1)
             )
         loop_time = self._loop.time()
         self.measured_period = loop_time - self._last_loop_time
         self._last_loop_time = loop_time
-        self._next_tick = loop_time + self.period
+        self.__next_tick = loop_time + self.__period
