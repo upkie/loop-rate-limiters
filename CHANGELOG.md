@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.1] - 2023/10/17
+
+### Fixed
+
+- RateLimiter: Initialization of slack attribute
+
 ## [0.6.0] - 2023/09/01
 
 ### Added

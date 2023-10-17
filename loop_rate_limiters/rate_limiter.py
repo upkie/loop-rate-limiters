@@ -62,6 +62,7 @@ class RateLimiter:
         period = 1.0 / frequency
         self.__next_tick = perf_counter() + period
         self.__period = period
+        self.__slack = 0.0
         self.name = name
         self.warn = warn
 
