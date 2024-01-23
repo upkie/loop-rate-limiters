@@ -34,7 +34,7 @@ $ pip install loop-rate-limiters
 [![Conda downloads](https://anaconda.org/conda-forge/loop-rate-limiters/badges/downloads.svg)](https://anaconda.org/conda-forge/loop-rate-limiters)
 
 ```console
-$ conda install loop-rate-limiters -c conda-forge
+$ conda install -c conda-forge loop-rate-limiters
 ```
 
 ## Asynchronous I/O
