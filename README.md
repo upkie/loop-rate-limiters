@@ -1,6 +1,7 @@
 # Loop rate limiters
 
 [![Build](https://img.shields.io/github/actions/workflow/status/upkie/loop-rate-limiters/main.yml?branch=main)](https://github.com/upkie/loop-rate-limiters/actions)
+[![Documentation](https://img.shields.io/github/actions/workflow/status/upkie/loop-rate-limiters/docs.yml?branch=main&label=docs)](https://upkie.github.io/loop-rate-limiters/)
 [![Coverage](https://coveralls.io/repos/github/upkie/loop-rate-limiters/badge.svg?branch=main)](https://coveralls.io/github/upkie/loop-rate-limiters?branch=main)
 [![Conda version](https://anaconda.org/conda-forge/loop-rate-limiters/badges/version.svg)](https://anaconda.org/conda-forge/loop-rate-limiters)
 [![PyPI version](https://img.shields.io/pypi/v/loop-rate-limiters)](https://pypi.org/project/loop-rate-limiters/)
