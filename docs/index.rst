@@ -1,9 +1,9 @@
-:github_url: https://github.com/upkie/loop-rate-limiters/tree/main/docs/index.rst
-
 .. title:: Table of Contents
 
-##################
-Loop rate limiters
-##################
+.. mdinclude:: ../README.md
 
-.. mdinclude:: ../README.md 
+.. toctree::
+    :maxdepth: 1
+
+    rate_limiter.rst
+    async_rate_limiter.rst
