@@ -25,13 +25,13 @@ A similar ``AsyncRateLimiter`` class is available for [asynchronous code](https:
 You can install the library straight from PyPI:
 
 ```console
-$ pip install loop-rate-limiters
+pip install loop-rate-limiters
 ```
 
 Or equivalently from Conda:
 
 ```console
-$ conda install -c conda-forge loop-rate-limiters
+conda install -c conda-forge loop-rate-limiters
 ```
 
 ## Asynchronous I/O
