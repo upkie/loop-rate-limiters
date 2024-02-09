@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 
 - Documentation
+- Support Python 3.11
 
 ## [0.6.1] - 2023-10-17
 
