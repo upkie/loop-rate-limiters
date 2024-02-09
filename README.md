@@ -49,6 +49,5 @@ async def main():
         print(f"Hello from loop at {loop_time:.3f} s")
         await rate.sleep()
 
-if __name__ == "__main__":
-    asyncio.run(main())
+asyncio.run(main())
 ```
