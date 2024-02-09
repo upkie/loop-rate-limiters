@@ -66,12 +66,12 @@ All notable changes to this project will be documented in this file.
 
 - Loop rate limiter based on ``time.perf_counter``
 
-[unreleased]: https://github.com/upkie/loop-rate-limiters/compare/1.0.0...HEAD
-[1.0.0]: https://github.com/upkie/loop-rate-limiters/compare/0.6.1...v1.0.0
-[0.6.1]: https://github.com/upkie/loop-rate-limiters/compare/0.6.0...v0.6.1
-[0.6.0]: https://github.com/upkie/loop-rate-limiters/compare/0.5.0...v0.6.0
-[0.5.0]: https://github.com/upkie/loop-rate-limiters/compare/0.4.0...v0.5.0
-[0.4.0]: https://github.com/upkie/loop-rate-limiters/compare/0.3.0...v0.4.0
-[0.3.0]: https://github.com/upkie/loop-rate-limiters/compare/0.2.0...v0.3.0
+[unreleased]: https://github.com/upkie/loop-rate-limiters/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/upkie/loop-rate-limiters/compare/v0.6.1...v1.0.0
+[0.6.1]: https://github.com/upkie/loop-rate-limiters/compare/v0.6.0...v0.6.1
+[0.6.0]: https://github.com/upkie/loop-rate-limiters/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/upkie/loop-rate-limiters/compare/v0.4.0...v0.5.0
+[0.4.0]: https://github.com/upkie/loop-rate-limiters/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/upkie/loop-rate-limiters/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/upkie/loop-rate-limiters/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/upkie/loop-rate-limiters/releases/tag/v0.1.0
