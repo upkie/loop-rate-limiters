@@ -60,7 +60,7 @@ class TestAsyncRateLimiter(unittest.IsolatedAsyncioTestCase):
             in the CI) has imprecise timers.
         """
         await self.rate.sleep()
-        await asyncio.sleep(self.rate.period * 1.05)  # a tad extra
+        await asyncio.sleep(self.rate.period * 2.0)  # sleep more than rate
         await self.rate.sleep()  # computes slack of previous period
         self.assertLess(self.rate.slack, 0.0)
 
