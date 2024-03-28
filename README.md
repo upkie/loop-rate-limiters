@@ -51,3 +51,9 @@ async def main():
 
 asyncio.run(main())
 ```
+
+This can be used if, for instance, there are several tasks executed in parallel at different frequencies.
+
+## See also
+
+- [ischedule](https://github.com/aleksve/ischedule): single-thread interval scheduler in Python
