@@ -74,7 +74,11 @@ class AsyncRateLimiter:
         """
         loop = asyncio.get_event_loop()
         period = 1.0 / frequency
-        assert loop.is_running()
+        if not loop.is_running() and warn:
+            logging.warning(
+                "asyncio loop does not seem to be running for %s",
+                self.name,
+            )
         self.__last_loop_time = loop.time()
         self.__loop = loop
         self.__measured_period = 0.0

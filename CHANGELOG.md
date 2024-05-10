@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+
+- Warn rather than raise an exception when asyncio loop is not running
+
 ## [1.0.0] - 2024-02-08
 
 ### Added
