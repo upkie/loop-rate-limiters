@@ -49,6 +49,8 @@ exclude = [
 
 [tool.ruff]
 line-length = 79
+
+[tool.lint]
 select = [
     # pyflakes
     "F",
@@ -65,5 +67,5 @@ ignore = [
     "D405",  # British-style section names are also "proper"!
 ]
 
-[tool.ruff.pydocstyle]
+[tool.lint.pydocstyle]
 convention = "google"
