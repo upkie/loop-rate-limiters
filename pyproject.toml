@@ -31,6 +31,7 @@ dependencies = []
 keywords = ["rate", "loop", "frequency", "regulator", "limiter"]
 
 [project.urls]
+Homepage = "https://github.com/upkie/loop-rate-limiters"
 Source = "https://github.com/upkie/loop-rate-limiters"
 Tracker = "https://github.com/upkie/loop-rate-limiters/issues"
 Changelog = "https://github.com/upkie/loop-rate-limiters/blob/master/CHANGELOG.md"
