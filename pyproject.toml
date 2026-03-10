@@ -47,30 +47,7 @@ exclude = [
     ".gitignore",
 ]
 
-[tool.ruff]
-line-length = 79
-
-[tool.ruff.lint]
-select = [
-    # pyflakes
-    "F",
-    # pycodestyle
-    "E",
-    "W",
-    # isort
-    "I001",
-    # pydocstyle
-    "D"
-]
-ignore = [
-    "D401",  # good for methods but not for class docstrings
-    "D405",  # British-style section names are also "proper"!
-]
-
-[tool.ruff.lint.pydocstyle]
-convention = "google"
-
-[tool.pixi.project]
+[tool.pixi.workspace]
 channels = ["conda-forge"]
 platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
 
@@ -110,3 +87,26 @@ docs = "sphinx-build docs _build -W"
 [tool.pixi.environments]
 dev = ["dev"]
 docs = ["docs"]
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+select = [
+    # pyflakes
+    "F",
+    # pycodestyle
+    "E",
+    "W",
+    # isort
+    "I001",
+    # pydocstyle
+    "D"
+]
+ignore = [
+    "D401",  # good for methods but not for class docstrings
+    "D405",  # British-style section names are also "proper"!
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
